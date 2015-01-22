@@ -78,7 +78,6 @@ static Class hackishFixClass = Nil;
 
 @interface ZSSRichTextEditor ()
 @property (nonatomic, strong) UIScrollView *toolBarScroll;
-@property (nonatomic, strong) UIToolbar *toolbar;
 @property (nonatomic, strong) UIView *toolbarHolder;
 @property (nonatomic, strong) NSString *htmlString;
 @property (nonatomic) CGRect editorViewFrame;
