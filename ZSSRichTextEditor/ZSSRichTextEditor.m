@@ -615,6 +615,8 @@ static Class hackishFixClass = Nil;
         self.editorView.hidden = NO;
         [self enableToolbarItems:YES];
     }
+    
+    NSLog(@"%@", NSStringFromCGRect(self.sourceView.frame));
 }
 
 - (void)removeFormat {
