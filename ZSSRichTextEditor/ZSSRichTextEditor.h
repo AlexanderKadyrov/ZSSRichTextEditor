@@ -60,8 +60,8 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
  * Other params
  */
 @property CGRect frame;
-@property (nonatomic, strong) ZSSTextView *sourceView;
-@property (nonatomic, strong) UIWebView *editorView;
+@property ZSSTextView *sourceView;
+@property UIWebView *editorView;
 
 /**
  *  The base URL to use for the webView
