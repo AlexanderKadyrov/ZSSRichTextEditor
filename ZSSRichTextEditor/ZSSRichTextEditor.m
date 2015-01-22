@@ -603,8 +603,6 @@ static Class hackishFixClass = Nil;
 
 - (void)showHTMLSource:(ZSSBarButtonItem *)barButtonItem {
     
-    self.sourceView.frame = CGRectMake(18, 220, 678, 220);
-    
     if (self.sourceView.hidden) {
         self.sourceView.text = [self getHTML];
         self.sourceView.hidden = NO;
