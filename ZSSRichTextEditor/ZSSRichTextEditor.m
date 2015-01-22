@@ -189,7 +189,7 @@ static Class hackishFixClass = Nil;
         NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
         
         NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
-        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:@"678"];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:self.deviceWidth];
         
         NSString *source = [[NSBundle mainBundle] pathForResource:@"ZSSRichTextEditor" ofType:@"js"];
         NSString *jsString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:source] encoding:NSUTF8StringEncoding];
