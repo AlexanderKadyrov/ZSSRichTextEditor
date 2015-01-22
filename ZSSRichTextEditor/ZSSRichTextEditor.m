@@ -105,6 +105,8 @@ static Class hackishFixClass = Nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.mainView = self.view;
+    
     self.editorLoaded = NO;
     self.shouldShowKeyboard = YES;
     self.formatHTML = YES;
@@ -112,7 +114,7 @@ static Class hackishFixClass = Nil;
     self.enabledToolbarItems = [[NSArray alloc] init];
     
     // Source View
-    self.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
     self.sourceView = [[ZSSTextView alloc] initWithFrame:self.frame];
     self.sourceView.hidden = YES;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -121,7 +123,7 @@ static Class hackishFixClass = Nil;
     self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.sourceView.autoresizesSubviews = YES;
     self.sourceView.delegate = self;
-    [self.view addSubview:self.sourceView];
+    [self.mainView addSubview:self.sourceView];
     
     // Editor View
     self.editorView = [[UIWebView alloc] initWithFrame:self.frame];
@@ -133,10 +135,10 @@ static Class hackishFixClass = Nil;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.editorView.scrollView.bounces = NO;
     self.editorView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.editorView];
+    [self.mainView addSubview:self.editorView];
     
     // Scrolling View
-    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [self isIpad] ? self.view.frame.size.width : self.view.frame.size.width - 44, 44)];
+    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [self isIpad] ? self.mainView.frame.size.width : self.mainView.frame.size.width - 44, 44)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
@@ -148,11 +150,11 @@ static Class hackishFixClass = Nil;
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
     
     // Background Toolbar
-    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Parent holding view
-    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 44)];
+    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(0, self.mainView.frame.size.height, self.mainView.frame.size.width, 44)];
     self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
     [self.toolbarHolder addSubview:self.toolBarScroll];
     [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
@@ -161,7 +163,7 @@ static Class hackishFixClass = Nil;
     if (![self isIpad]) {
         
         // Toolbar holder used to crop and position toolbar
-        UIView *toolbarCropper = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width-44, 0, 44, 44)];
+        UIView *toolbarCropper = [[UIView alloc] initWithFrame:CGRectMake(self.mainView.frame.size.width-44, 0, 44, 44)];
         toolbarCropper.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         toolbarCropper.clipsToBounds = YES;
         
@@ -178,7 +180,7 @@ static Class hackishFixClass = Nil;
         line.alpha = 0.7f;
         [toolbarCropper addSubview:line];
     }
-    [self.view addSubview:self.toolbarHolder];
+    [self.mainView addSubview:self.toolbarHolder];
     
     // Build the toolbar
     [self buildToolbar];
@@ -593,7 +595,7 @@ static Class hackishFixClass = Nil;
 }
 
 - (void)dismissKeyboard {
-    [self.view endEditing:YES];
+    [self.mainView endEditing:YES];
 }
 
 - (void)showHTMLSource:(ZSSBarButtonItem *)barButtonItem {
@@ -1224,14 +1226,14 @@ static Class hackishFixClass = Nil;
             
             // Toolbar
             CGRect frameToolbarHolder = self.toolbarHolder.frame;
-            frameToolbarHolder.origin.y = self.view.frame.size.height - (keyboardHeight + sizeOfToolbar);
+            frameToolbarHolder.origin.y = self.mainView.frame.size.height - (keyboardHeight + sizeOfToolbar);
             self.toolbarHolder.frame = frameToolbarHolder;
             
             // Editor View
             const int extraHeight = 10;
             
             CGRect editorFrame = self.editorView.frame;
-            editorFrame.size.height = (self.view.frame.size.height - keyboardHeight) - sizeOfToolbar - extraHeight;
+            editorFrame.size.height = (self.mainView.frame.size.height - keyboardHeight) - sizeOfToolbar - extraHeight;
             self.editorView.frame = editorFrame;
             self.editorViewFrame = self.editorView.frame;
             self.editorView.scrollView.contentInset = UIEdgeInsetsZero;
@@ -1239,7 +1241,7 @@ static Class hackishFixClass = Nil;
             
             // Source View
             CGRect sourceFrame = self.sourceView.frame;
-            sourceFrame.size.height = (self.view.frame.size.height - keyboardHeight) - sizeOfToolbar - extraHeight;
+            sourceFrame.size.height = (self.mainView.frame.size.height - keyboardHeight) - sizeOfToolbar - extraHeight;
             self.sourceView.frame = sourceFrame;
             
             // Provide editor with keyboard height and editor view height
@@ -1253,12 +1255,12 @@ static Class hackishFixClass = Nil;
         [UIView animateWithDuration:duration delay:0 options:animationOptions animations:^{
             
             CGRect frameToolbarHolder = self.toolbarHolder.frame;
-            frameToolbarHolder.origin.y = self.view.frame.size.height + keyboardHeight;
+            frameToolbarHolder.origin.y = self.mainView.frame.size.height + keyboardHeight;
             self.toolbarHolder.frame = frameToolbarHolder;
             
             // Editor View
             CGRect editorFrame = self.editorView.frame;
-            editorFrame.size.height = self.view.frame.size.height;
+            editorFrame.size.height = self.mainView.frame.size.height;
             self.editorView.frame = editorFrame;
             self.editorViewFrame = self.editorView.frame;
             self.editorView.scrollView.contentInset = UIEdgeInsetsZero;
@@ -1266,7 +1268,7 @@ static Class hackishFixClass = Nil;
             
             // Source View
             CGRect sourceFrame = self.sourceView.frame;
-            sourceFrame.size.height = self.view.frame.size.height;
+            sourceFrame.size.height = self.mainView.frame.size.height;
             self.sourceView.frame = sourceFrame;
             
         } completion:nil];
