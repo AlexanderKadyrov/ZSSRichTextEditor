@@ -117,8 +117,8 @@ static Class hackishFixClass = Nil;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
     self.sourceView.font = [UIFont fontWithName:@"Courier" size:13.0];
-    //self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.sourceView.autoresizesSubviews = YES;
+    self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    //self.sourceView.autoresizesSubviews = YES;
     self.sourceView.delegate = self;
     [self.mainView addSubview:self.sourceView];
     
