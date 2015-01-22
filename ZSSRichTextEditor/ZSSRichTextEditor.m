@@ -191,6 +191,8 @@ static Class hackishFixClass = Nil;
         NSString *jsString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:source] encoding:NSUTF8StringEncoding];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!--editor-->" withString:jsString];
         
+        NSLog(@"w: %f h: %f", self.mainView.frame.size.width, self.mainView.frame.size.height);
+        
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
