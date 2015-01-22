@@ -79,7 +79,6 @@ static Class hackishFixClass = Nil;
 @interface ZSSRichTextEditor ()
 @property (nonatomic, strong) UIScrollView *toolBarScroll;
 @property (nonatomic, strong) UIView *toolbarHolder;
-@property (nonatomic, strong) NSString *htmlString;
 @property (nonatomic) CGRect editorViewFrame;
 @property (nonatomic) BOOL resourcesLoaded;
 @property (nonatomic, strong) NSArray *editorItemsEnabled;
@@ -187,15 +186,12 @@ static Class hackishFixClass = Nil;
     if (!self.resourcesLoaded) {
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"editor" ofType:@"html"];
         NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
-        
-        NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
-        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:self.deviceWidth];
-        
+        self.htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
         NSString *source = [[NSBundle mainBundle] pathForResource:@"ZSSRichTextEditor" ofType:@"js"];
         NSString *jsString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:source] encoding:NSUTF8StringEncoding];
-        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!--editor-->" withString:jsString];
+        self.htmlString = [self.htmlString stringByReplacingOccurrencesOfString:@"<!--editor-->" withString:jsString];
         
-        [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
+        [self.editorView loadHTMLString:self.htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
     
