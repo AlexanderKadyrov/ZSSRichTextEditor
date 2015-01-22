@@ -186,7 +186,7 @@ static Class hackishFixClass = Nil;
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"editor" ofType:@"html"];
         NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
         
-        NSString *width = [NSString stringWithFormat:@"%1.0f", self.mainView.frame.size.width];
+        NSString *width = [NSString stringWithFormat:@"%1.0f", self.mainView.frame.size.width - 26];
         NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:width];
         
