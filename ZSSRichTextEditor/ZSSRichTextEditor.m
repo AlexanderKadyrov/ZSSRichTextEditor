@@ -118,7 +118,7 @@ static Class hackishFixClass = Nil;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
     self.sourceView.font = [UIFont fontWithName:@"Courier" size:13.0];
-    //self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.sourceView.autoresizesSubviews = YES;
     self.sourceView.delegate = self;
     [self.mainView addSubview:self.sourceView];
@@ -129,7 +129,7 @@ static Class hackishFixClass = Nil;
     self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     self.editorView.scalesPageToFit = YES;
-    //self.editorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    self.editorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.editorView.scrollView.bounces = NO;
     self.editorView.backgroundColor = [UIColor whiteColor];
@@ -146,6 +146,7 @@ static Class hackishFixClass = Nil;
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
+    [self.mainView addSubview:self.toolbar];
     
     // Background Toolbar
     UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
