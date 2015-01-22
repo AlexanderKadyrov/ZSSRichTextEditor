@@ -113,7 +113,7 @@ static Class hackishFixClass = Nil;
     
     // Source View
     self.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
-    self.sourceView = [[ZSSTextView alloc] initWithFrame:self.frameSourceView];
+    self.sourceView = [[ZSSTextView alloc] initWithFrame:self.frame];
     self.sourceView.hidden = YES;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -124,7 +124,7 @@ static Class hackishFixClass = Nil;
     [self.mainView addSubview:self.sourceView];
     
     // Editor View
-    self.editorView = [[UIWebView alloc] initWithFrame:self.frameEditorView];
+    self.editorView = [[UIWebView alloc] initWithFrame:self.frame];
     self.editorView.delegate = self;
     self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
@@ -141,7 +141,7 @@ static Class hackishFixClass = Nil;
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
     // Toolbar with icons
-    self.toolbar = [[UIToolbar alloc] initWithFrame:self.frameToolbar];
+    self.toolbar = [[UIToolbar alloc] initWithFrame:self.frame];
     self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
