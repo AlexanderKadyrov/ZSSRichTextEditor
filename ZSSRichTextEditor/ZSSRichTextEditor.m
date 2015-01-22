@@ -103,6 +103,7 @@ static Class hackishFixClass = Nil;
     [super viewDidLoad];
     
     self.mainView = self.view;
+    self.mainView.frame = CGRectMake(0, 0, 704, 704);
     
     self.editorLoaded = NO;
     self.shouldShowKeyboard = YES;
@@ -112,7 +113,7 @@ static Class hackishFixClass = Nil;
     
     // Source View
     self.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
-    self.sourceView = [[ZSSTextView alloc] initWithFrame:self.frame];
+    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(18, 220, 678, 220)];
     self.sourceView.hidden = YES;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -123,7 +124,7 @@ static Class hackishFixClass = Nil;
     [self.mainView addSubview:self.sourceView];
     
     // Editor View
-    self.editorView = [[UIWebView alloc] initWithFrame:self.frame];
+    self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(18, 220, 678, 220)];
     self.editorView.delegate = self;
     self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
