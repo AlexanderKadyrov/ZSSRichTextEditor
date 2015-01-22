@@ -67,6 +67,7 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
 @property CGRect frameSourceView;
 @property CGRect frameEditorView;
 @property CGRect frameToolbar;
+@property UIView *toolbarHolder;
 
 
 /**
