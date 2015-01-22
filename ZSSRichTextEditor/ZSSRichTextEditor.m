@@ -141,12 +141,11 @@ static Class hackishFixClass = Nil;
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
     // Toolbar with icons
-    self.toolbar = [[UIToolbar alloc] initWithFrame:self.frame];
+    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
     self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
-    [self.mainView addSubview:self.toolbar];
     
     // Background Toolbar
     UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
