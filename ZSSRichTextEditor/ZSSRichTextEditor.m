@@ -186,12 +186,14 @@ static Class hackishFixClass = Nil;
     if (!self.resourcesLoaded) {
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"editor" ofType:@"html"];
         NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
+        
+        NSString *width = [NSString stringWithFormat:@"%1.0f", self.mainView.frame.size.width];
         NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:width];
+        
         NSString *source = [[NSBundle mainBundle] pathForResource:@"ZSSRichTextEditor" ofType:@"js"];
         NSString *jsString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:source] encoding:NSUTF8StringEncoding];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!--editor-->" withString:jsString];
-        
-        NSLog(@"w: %f h: %f", self.mainView.frame.size.width, self.mainView.frame.size.height);
         
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
