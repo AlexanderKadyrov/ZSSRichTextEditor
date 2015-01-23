@@ -1130,6 +1130,7 @@ static Class hackishFixClass = Nil;
     
     CGFloat contentSiseHeight = (CGFloat)position;
     self.editorView.scrollView.contentSize = CGSizeMake(self.editorView.frame.size.width, contentSiseHeight + 20);
+    [self.editorView.scrollView setContentOffset:CGPointMake(0, contentSiseHeight) animated:YES];
 }
 
 
