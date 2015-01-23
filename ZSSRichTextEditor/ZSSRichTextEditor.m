@@ -179,16 +179,9 @@ static Class hackishFixClass = Nil;
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
-    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectZero];
+    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
-    
-    // Parent holding view
-    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-    self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
-    [self.toolbarHolder addSubview:self.toolBarScroll];
-    [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
-    [self.mainView addSubview:self.toolbarHolder];
     
     // Toolbar with icons
     // Toolbar размер по ширине ноль, так как он увеличивается с добавлением каждой кнопочки
@@ -197,6 +190,13 @@ static Class hackishFixClass = Nil;
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
+    
+    // Parent holding view
+    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
+    self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
+    [self.toolbarHolder addSubview:self.toolBarScroll];
+    [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
+    [self.mainView addSubview:self.toolbarHolder];
     
     // Build the toolbar
     [self buildToolbar];
