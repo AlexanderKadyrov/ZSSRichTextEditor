@@ -23,6 +23,7 @@
 static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryView";
 static Class hackishFixClass = Nil;
 
+/*
 - (UIView *)hackishlyFoundBrowserView {
     
     UIScrollView *scrollView = self.scrollView;
@@ -74,7 +75,8 @@ static Class hackishFixClass = Nil;
     }
     [browserView reloadInputViews];
 }
-
+*/
+ 
 @end
 
 @interface ZSSRichTextEditor ()
