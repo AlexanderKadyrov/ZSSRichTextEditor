@@ -188,7 +188,7 @@ static Class hackishFixClass = Nil;
     
     // Parent holding view
     self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-    self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
+    //self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
     [self.toolbarHolder addSubview:self.toolBarScroll];
     [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
     
