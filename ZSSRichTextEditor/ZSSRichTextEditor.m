@@ -1098,6 +1098,8 @@ static Class hackishFixClass = Nil;
     } else if ([urlString rangeOfString:@"scroll://"].location != NSNotFound) {
         
         NSInteger position = [[urlString stringByReplacingOccurrencesOfString:@"scroll://" withString:@""] integerValue];
+        NSLog(@"%ld", (long)position);
+        
         [self editorDidScrollWithPosition:position];
         
     }
@@ -1109,7 +1111,7 @@ static Class hackishFixClass = Nil;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     self.editorLoaded = YES;
-    [self setPlaceholderText];
+    //[self setPlaceholderText];
     if (!self.internalHTML) {
         self.internalHTML = @"";
     }
