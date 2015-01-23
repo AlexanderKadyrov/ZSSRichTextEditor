@@ -183,7 +183,7 @@ static Class hackishFixClass = Nil;
     // Background Toolbar
     //UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
     
-    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(x, y, w, h)];
+    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Parent holding view
