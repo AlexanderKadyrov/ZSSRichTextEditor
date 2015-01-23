@@ -69,7 +69,6 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
 @property CGRect frameToolbar;
 @property UIView *toolbarHolder;
 
-
 /**
  *  The base URL to use for the webView
  */
@@ -209,4 +208,22 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
  */
 - (void)editorDidScrollWithPosition:(NSInteger)position;
 
+
+
+- (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h;
+
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+

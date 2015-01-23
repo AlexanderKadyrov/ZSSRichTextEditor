@@ -101,9 +101,9 @@ static Class hackishFixClass = Nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    /*
     self.mainView = self.view;
-    self.mainView.frame = CGRectMake(0, 0, 704, 704);
+    //self.mainView.frame = CGRectMake(0, 0, 704, 704);
     
     self.editorLoaded = NO;
     self.shouldShowKeyboard = YES;
@@ -113,7 +113,7 @@ static Class hackishFixClass = Nil;
     
     // Source View
     self.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
-    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(18, 220, 678, 220)];
+    self.sourceView = [[ZSSTextView alloc] initWithFrame:self.frame];
     self.sourceView.hidden = YES;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -123,17 +123,7 @@ static Class hackishFixClass = Nil;
     self.sourceView.delegate = self;
     [self.mainView addSubview:self.sourceView];
     
-    // Editor View
-    self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(18, 220, 678, 220)];
-    self.editorView.delegate = self;
-    self.editorView.hidesInputAccessoryView = YES;
-    self.editorView.keyboardDisplayRequiresUserAction = NO;
-    self.editorView.scalesPageToFit = YES;
-    self.editorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
-    self.editorView.scrollView.bounces = NO;
-    self.editorView.backgroundColor = [UIColor whiteColor];
-    [self.mainView addSubview:self.editorView];
+    
     
     // Scrolling View
     self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [self isIpad] ? self.mainView.frame.size.width : self.mainView.frame.size.width - 44, 44)];
@@ -200,9 +190,23 @@ static Class hackishFixClass = Nil;
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
-    
+    */
 }
 
+- (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
+    
+    // Editor View
+    self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(x, y, w, h)];
+    self.editorView.delegate = self;
+    self.editorView.hidesInputAccessoryView = YES;
+    self.editorView.keyboardDisplayRequiresUserAction = NO;
+    self.editorView.scalesPageToFit = YES;
+    self.editorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
+    self.editorView.scrollView.bounces = NO;
+    self.editorView.backgroundColor = [UIColor whiteColor];
+    [self.mainView addSubview:self.editorView];
+}
 
 - (void)setEnabledToolbarItems:(NSArray *)enabledToolbarItems {
     
