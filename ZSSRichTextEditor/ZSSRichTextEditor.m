@@ -1109,7 +1109,7 @@ static Class hackishFixClass = Nil;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     self.editorLoaded = YES;
-    //[self setPlaceholderText];
+    [self setPlaceholderText];
     if (!self.internalHTML) {
         self.internalHTML = @"";
     }
