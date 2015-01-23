@@ -104,10 +104,6 @@ static Class hackishFixClass = Nil;
     
     self.mainView = self.view;
     
-    /*
-    
-    //self.mainView.frame = CGRectMake(0, 0, 704, 704);
-    
     self.editorLoaded = NO;
     self.shouldShowKeyboard = YES;
     self.formatHTML = YES;
@@ -116,15 +112,8 @@ static Class hackishFixClass = Nil;
     
     // Source View
     self.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
-    self.sourceView = [[ZSSTextView alloc] initWithFrame:self.frame];
-    self.sourceView.hidden = YES;
-    self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.sourceView.font = [UIFont fontWithName:@"Courier" size:13.0];
-    self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.sourceView.autoresizesSubviews = YES;
-    self.sourceView.delegate = self;
-    [self.mainView addSubview:self.sourceView];
+    
+    
     
     
     
@@ -193,7 +182,6 @@ static Class hackishFixClass = Nil;
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
-    */
 }
 
 - (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
@@ -209,6 +197,19 @@ static Class hackishFixClass = Nil;
     self.editorView.scrollView.bounces = NO;
     self.editorView.backgroundColor = [UIColor whiteColor];
     [self.mainView addSubview:self.editorView];
+}
+
+- (void)makeSourceViewX:(CGFloat)x makeSourceViewY:(CGFloat)y makeSourceViewW:(CGFloat)w makeSourceViewH:(CGFloat)h {
+    
+    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(x, y, w, h)];
+    self.sourceView.hidden = YES;
+    self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.sourceView.font = [UIFont fontWithName:@"Courier" size:13.0];
+    self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.sourceView.autoresizesSubviews = YES;
+    self.sourceView.delegate = self;
+    [self.mainView addSubview:self.sourceView];
 }
 
 - (void)setEnabledToolbarItems:(NSArray *)enabledToolbarItems {
