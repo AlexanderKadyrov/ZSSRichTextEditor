@@ -24,7 +24,7 @@ static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryV
 static Class hackishFixClass = Nil;
 
 - (UIView *)hackishlyFoundBrowserView {
-    /*
+    
     UIScrollView *scrollView = self.scrollView;
     
     UIView *browserView = nil;
@@ -34,7 +34,7 @@ static Class hackishFixClass = Nil;
             break;
         }
     }
-    return browserView;*/
+    return browserView;
 }
 
 - (id)methodReturningNil {
@@ -119,7 +119,7 @@ static Class hackishFixClass = Nil;
     // Editor View
     self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(x, y, w, h)];
     self.editorView.delegate = self;
-    self.editorView.hidesInputAccessoryView = YES;
+    //self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     self.editorView.scalesPageToFit = YES;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
