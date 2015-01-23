@@ -125,6 +125,7 @@ static Class hackishFixClass = Nil;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.editorView.scrollView.bounces = NO;
     self.editorView.backgroundColor = [UIColor whiteColor];
+    [self.editorView.scrollView setContentSize:CGSizeMake(w, h)];
     [self.mainView addSubview:self.editorView];
     
     if (!self.resourcesLoaded) {
@@ -1130,10 +1131,10 @@ static Class hackishFixClass = Nil;
     
     //CGFloat contentSiseHeight = (CGFloat)position;
     
-    CGFloat contentSiseHeight = self.editorView.scrollView.contentSize.height;
+    //CGFloat contentSiseHeight = self.editorView.scrollView.contentSize.height;
     //self.editorView.scrollView.contentSize = CGSizeMake(self.editorView.frame.size.width, contentSiseHeight + 20);
     
-    [self.editorView.scrollView setContentOffset:CGPointMake(0, contentSiseHeight + 10) animated:NO];
+    //[self.editorView.scrollView setContentOffset:CGPointMake(0, contentSiseHeight + 10) animated:NO];
 }
 
 
