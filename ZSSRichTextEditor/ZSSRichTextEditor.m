@@ -508,7 +508,7 @@ static Class hackishFixClass = Nil;
     }
     
     self.toolbar.frame = CGRectMake(0, 0, toolbarWidth, 44);
-    self.toolBarScroll.contentSize = CGSizeMake(self.toolbar.frame.size.width, 44);
+    self.toolBarScroll.contentSize = CGSizeMake(toolbarWidth, 44);
 }
 
 
