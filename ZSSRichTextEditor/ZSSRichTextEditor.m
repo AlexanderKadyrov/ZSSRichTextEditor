@@ -1098,8 +1098,6 @@ static Class hackishFixClass = Nil;
     } else if ([urlString rangeOfString:@"scroll://"].location != NSNotFound) {
         
         NSInteger position = [[urlString stringByReplacingOccurrencesOfString:@"scroll://" withString:@""] integerValue];
-        NSLog(@"%ld", (long)position);
-        
         [self editorDidScrollWithPosition:position];
         
     }
@@ -1130,7 +1128,8 @@ static Class hackishFixClass = Nil;
 // Blank implementation
 - (void)editorDidScrollWithPosition:(NSInteger)position {
     
-    
+    CGFloat size = self.editorView.scrollView.contentSize.height;
+    self.editorView.scrollView.contentSize = CGSizeMake(self.editorView.frame.size.width, size + 10);
 }
 
 
