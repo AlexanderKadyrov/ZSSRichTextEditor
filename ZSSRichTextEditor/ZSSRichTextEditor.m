@@ -13,21 +13,16 @@
 #import "ZSSBarButtonItem.h"
 #import "HRColorUtil.h"
 
+@interface UIWebView (HackishAccessoryHiding)
+@property (nonatomic, assign) BOOL hidesInputAccessoryView;
+@end
 
-//@interface UIWebView (HackishAccessoryHiding)
-//@interface UIWebView ()
-//@property (nonatomic, assign) BOOL hidesInputAccessoryView;
-//@end
+@implementation UIWebView (HackishAccessoryHiding)
 
-//@implementation UIWebView (HackishAccessoryHiding)
-//@implementation UIWebView
+static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryView";
+static Class hackishFixClass = Nil;
 
-//static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryView";
-//static Class hackishFixClass = Nil;
-
-/*
 - (UIView *)hackishlyFoundBrowserView {
-    
     UIScrollView *scrollView = self.scrollView;
     
     UIView *browserView = nil;
@@ -77,9 +72,8 @@
     }
     [browserView reloadInputViews];
 }
-*/
- 
-//@end
+
+@end
 
 @interface ZSSRichTextEditor ()
 @property (nonatomic, strong) UIScrollView *toolBarScroll;
