@@ -167,7 +167,7 @@ static Class hackishFixClass = Nil;
     // Scrolling View
     self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
-    self.toolBarScroll.showsHorizontalScrollIndicator = YES;
+    self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
     // Toolbar with icons
     // Toolbar размер по ширине ноль, так как он увеличивается с добавлением каждой кнопочки
