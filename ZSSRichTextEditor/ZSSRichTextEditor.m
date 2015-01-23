@@ -131,8 +131,10 @@ static Class hackishFixClass = Nil;
         NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
         
         NSString *width = [NSString stringWithFormat:@"%1.0f", w];
+        NSString *height = [NSString stringWithFormat:@"%1.0f", h];
+        
         width = [width stringByAppendingString:@"px"];
-        NSLog(@"%@", width);
+        height = [height stringByAppendingString:@"px"];
         
         NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:width];
