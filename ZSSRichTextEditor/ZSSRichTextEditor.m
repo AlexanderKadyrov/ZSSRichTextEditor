@@ -121,7 +121,7 @@ static Class hackishFixClass = Nil;
     self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     self.editorView.scalesPageToFit = YES;
-    self.editorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    //self.editorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.editorView.scrollView.bounces = NO;
     self.editorView.backgroundColor = [UIColor whiteColor];
@@ -1200,7 +1200,7 @@ static Class hackishFixClass = Nil;
 #pragma mark - Keyboard status
 
 - (void)keyboardWillShowOrHide:(NSNotification *)notification {
-    
+    /*
     // Orientation
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     
@@ -1274,6 +1274,7 @@ static Class hackishFixClass = Nil;
         } completion:nil];
         
     }//end
+    */
 }
 
 
