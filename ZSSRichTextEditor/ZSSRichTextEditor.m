@@ -174,7 +174,7 @@ static Class hackishFixClass = Nil;
     // Toolbar with icons
     // Toolbar размер по ширине ноль, так как он увеличивается с добавлением каждой кнопочки
     self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
-    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.toolbar.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
