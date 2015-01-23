@@ -109,11 +109,11 @@ static Class hackishFixClass = Nil;
     self.formatHTML = YES;
     
     self.enabledToolbarItems = [[NSArray alloc] init];
-    
-    self.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
 }
 
 - (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
+    
+    //self.frame = CGRectMake(0, 0, w, h);
     
     // Editor View
     self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(x, y, w, h)];
