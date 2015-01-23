@@ -110,19 +110,7 @@ static Class hackishFixClass = Nil;
     
     self.enabledToolbarItems = [[NSArray alloc] init];
     
-    
-    
     self.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 - (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
@@ -176,7 +164,7 @@ static Class hackishFixClass = Nil;
     //UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
     
     UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
-    backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    //backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
     self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
@@ -185,7 +173,7 @@ static Class hackishFixClass = Nil;
     
     // Toolbar with icons
     // Toolbar размер по ширине ноль, так как он увеличивается с добавлением каждой кнопочки
-    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
     self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
