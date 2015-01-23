@@ -179,7 +179,7 @@ static Class hackishFixClass = Nil;
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
-    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
+    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectZero];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
