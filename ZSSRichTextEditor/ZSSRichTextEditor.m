@@ -101,8 +101,11 @@ static Class hackishFixClass = Nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*
+    
     self.mainView = self.view;
+    
+    /*
+    
     //self.mainView.frame = CGRectMake(0, 0, 704, 704);
     
     self.editorLoaded = NO;
