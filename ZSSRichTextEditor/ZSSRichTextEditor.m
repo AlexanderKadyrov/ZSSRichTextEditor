@@ -121,11 +121,9 @@ static Class hackishFixClass = Nil;
     self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     self.editorView.scalesPageToFit = YES;
-    //self.editorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.editorView.scrollView.bounces = NO;
     self.editorView.backgroundColor = [UIColor whiteColor];
-    //[self.editorView.scrollView setContentSize:CGSizeMake(w, h)];
     [self.mainView addSubview:self.editorView];
     
     if (!self.resourcesLoaded) {
@@ -153,7 +151,6 @@ static Class hackishFixClass = Nil;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
     self.sourceView.font = [UIFont fontWithName:@"Courier" size:13.0];
-    self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.sourceView.autoresizesSubviews = YES;
     self.sourceView.delegate = self;
     [self.mainView addSubview:self.sourceView];
