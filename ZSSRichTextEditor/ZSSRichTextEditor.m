@@ -507,8 +507,8 @@ static Class hackishFixClass = Nil;
         item.tintColor = [self barButtonItemDefaultColor];
     }
     
-    //self.toolbar.frame = CGRectMake(0, 0, toolbarWidth, 44);
-    //self.toolBarScroll.contentSize = CGSizeMake(self.toolbar.frame.size.width, 44);
+    self.toolbar.frame = CGRectMake(0, 0, toolbarWidth, 44);
+    self.toolBarScroll.contentSize = CGSizeMake(self.toolbar.frame.size.width, 44);
 }
 
 
