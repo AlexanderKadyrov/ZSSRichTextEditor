@@ -1128,9 +1128,12 @@ static Class hackishFixClass = Nil;
 // Blank implementation
 - (void)editorDidScrollWithPosition:(NSInteger)position {
     
-    CGFloat contentSiseHeight = (CGFloat)position;
+    //CGFloat contentSiseHeight = (CGFloat)position;
+    
+    CGFloat contentSiseHeight = self.editorView.scrollView.contentSize.height;
     self.editorView.scrollView.contentSize = CGSizeMake(self.editorView.frame.size.width, contentSiseHeight + 20);
-    [self.editorView.scrollView setContentOffset:CGPointMake(0, contentSiseHeight) animated:YES];
+    
+    //[self.editorView.scrollView setContentOffset:CGPointMake(0, contentSiseHeight) animated:YES];
 }
 
 
