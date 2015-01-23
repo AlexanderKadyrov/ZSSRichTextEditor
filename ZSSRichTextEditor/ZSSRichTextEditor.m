@@ -191,7 +191,7 @@ static Class hackishFixClass = Nil;
     [self.mainView addSubview:self.toolbarHolder];
     
     // Toolbar with icons
-    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
     self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
