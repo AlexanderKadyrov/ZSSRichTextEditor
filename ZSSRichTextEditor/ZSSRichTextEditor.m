@@ -110,7 +110,8 @@ static Class hackishFixClass = Nil;
     
     self.enabledToolbarItems = [[NSArray alloc] init];
     
-    // Source View
+    
+    
     self.frame = CGRectMake(0, 0, self.mainView.frame.size.width, self.mainView.frame.size.height);
     
     
@@ -129,61 +130,7 @@ static Class hackishFixClass = Nil;
     [self.toolBarScroll addSubview:self.toolbar];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
     
-    // Background Toolbar
-    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
-    backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-    // Parent holding view
-    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(0, self.mainView.frame.size.height, self.mainView.frame.size.width, 44)];
-    self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
-    [self.toolbarHolder addSubview:self.toolBarScroll];
-    [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
-    
-    // Hide Keyboard
-    if (![self isIpad]) {
-        
-        // Toolbar holder used to crop and position toolbar
-        UIView *toolbarCropper = [[UIView alloc] initWithFrame:CGRectMake(self.mainView.frame.size.width-44, 0, 44, 44)];
-        toolbarCropper.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-        toolbarCropper.clipsToBounds = YES;
-        
-        // Use a toolbar so that we can tint
-        UIToolbar *keyboardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(-7, -1, 44, 44)];
-        [toolbarCropper addSubview:keyboardToolbar];
-        
-        self.keyboardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ZSSkeyboard.png"] style:UIBarButtonItemStylePlain target:self action:@selector(dismissKeyboard)];
-        keyboardToolbar.items = @[self.keyboardItem];
-        [self.toolbarHolder addSubview:toolbarCropper];
-        
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.6f, 44)];
-        line.backgroundColor = [UIColor lightGrayColor];
-        line.alpha = 0.7f;
-        [toolbarCropper addSubview:line];
-    }
-    [self.mainView addSubview:self.toolbarHolder];
-    
-    // Build the toolbar
-    [self buildToolbar];
-    
-    /*
-    if (!self.resourcesLoaded) {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"editor" ofType:@"html"];
-        NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
-        
-        NSString *width = [NSString stringWithFormat:@"%1.0f", self.mainView.frame.size.width - 26];
-        NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
-        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:width];
-        
-        NSString *source = [[NSBundle mainBundle] pathForResource:@"ZSSRichTextEditor" ofType:@"js"];
-        NSString *jsString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:source] encoding:NSUTF8StringEncoding];
-        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!--editor-->" withString:jsString];
-        
-        NSLog(@"%@", width);
-        
-        [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
-        self.resourcesLoaded = YES;
-    }
-    */
 }
 
 - (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
@@ -229,6 +176,25 @@ static Class hackishFixClass = Nil;
     self.sourceView.autoresizesSubviews = YES;
     self.sourceView.delegate = self;
     [self.mainView addSubview:self.sourceView];
+}
+
+- (void)makeToolBarX:(CGFloat)x makeToolBarY:(CGFloat)y makeToolBarW:(CGFloat)w makeToolBarH:(CGFloat)h {
+    
+    // Background Toolbar
+    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
+    backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    // Parent holding view
+    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(0, self.mainView.frame.size.height, self.mainView.frame.size.width, 44)];
+    self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
+    [self.toolbarHolder addSubview:self.toolBarScroll];
+    [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
+    
+    
+    [self.mainView addSubview:self.toolbarHolder];
+    
+    // Build the toolbar
+    [self buildToolbar];
 }
 
 - (void)setEnabledToolbarItems:(NSArray *)enabledToolbarItems {

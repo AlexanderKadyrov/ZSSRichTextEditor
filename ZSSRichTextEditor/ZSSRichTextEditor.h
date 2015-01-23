@@ -214,6 +214,8 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
 
 - (void)makeSourceViewX:(CGFloat)x makeSourceViewY:(CGFloat)y makeSourceViewW:(CGFloat)w makeSourceViewH:(CGFloat)h;
 
+- (void)makeToolBarX:(CGFloat)x makeToolBarY:(CGFloat)y makeToolBarW:(CGFloat)w makeToolBarH:(CGFloat)h;
+
 
 
 @end
