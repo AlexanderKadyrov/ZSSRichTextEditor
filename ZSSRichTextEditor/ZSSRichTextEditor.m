@@ -1134,7 +1134,7 @@ static Class hackishFixClass = Nil;
     //CGFloat contentSiseHeight = self.editorView.scrollView.contentSize.height;
     //self.editorView.scrollView.contentSize = CGSizeMake(self.editorView.frame.size.width, contentSiseHeight + 20);
     
-    [self.editorView.scrollView setContentOffset:CGPointMake(0, self.editorView.frame.size.height) animated:NO];
+    //[self.editorView.scrollView setContentOffset:CGPointMake(0, self.editorView.frame.size.height) animated:NO];
 }
 
 
@@ -1200,7 +1200,7 @@ static Class hackishFixClass = Nil;
 #pragma mark - Keyboard status
 
 - (void)keyboardWillShowOrHide:(NSNotification *)notification {
-    /*
+    
     // Orientation
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     
@@ -1274,7 +1274,6 @@ static Class hackishFixClass = Nil;
         } completion:nil];
         
     }//end
-    */
 }
 
 
