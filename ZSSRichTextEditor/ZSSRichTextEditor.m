@@ -117,19 +117,13 @@ static Class hackishFixClass = Nil;
     
     
     
-    /*
+    
     // Scrolling View
     self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [self isIpad] ? self.mainView.frame.size.width : self.mainView.frame.size.width - 44, 44)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
-    */
     
-    // Toolbar with icons
-    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
-    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.toolbar.backgroundColor = [UIColor clearColor];
-    [self.toolBarScroll addSubview:self.toolbar];
-    self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
+    
     
     
 }
@@ -192,9 +186,14 @@ static Class hackishFixClass = Nil;
     self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
     [self.toolbarHolder addSubview:self.toolBarScroll];
     [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
-    
-    
     [self.mainView addSubview:self.toolbarHolder];
+    
+    // Toolbar with icons
+    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.toolbar.backgroundColor = [UIColor clearColor];
+    [self.toolBarScroll addSubview:self.toolbar];
+    self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
     
     // Build the toolbar
     [self buildToolbar];
