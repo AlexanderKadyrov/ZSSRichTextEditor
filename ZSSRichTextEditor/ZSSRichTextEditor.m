@@ -200,20 +200,22 @@ static Class hackishFixClass = Nil;
     self.editorView.backgroundColor = [UIColor whiteColor];
     [self.mainView addSubview:self.editorView];
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"editor" ofType:@"html"];
-    NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
-    
-    NSString *width = [NSString stringWithFormat:@"%1.0f", w];
-    NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
-    htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:width];
-    
-    NSString *source = [[NSBundle mainBundle] pathForResource:@"ZSSRichTextEditor" ofType:@"js"];
-    NSString *jsString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:source] encoding:NSUTF8StringEncoding];
-    htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!--editor-->" withString:jsString];
-    
-    NSLog(@"%@", width);
-    
-    [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
+    if (!self.resourcesLoaded) {
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"editor" ofType:@"html"];
+        NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
+        NSString *width = [NSString stringWithFormat:@"%1.0f", w];
+        NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:width];
+        NSString *source = [[NSBundle mainBundle] pathForResource:@"ZSSRichTextEditor" ofType:@"js"];
+        NSString *jsString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:source] encoding:NSUTF8StringEncoding];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!--editor-->" withString:jsString];
+        
+        NSLog(@"%@", width);
+        
+        [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
+        self.resourcesLoaded = YES;
+    }
 }
 
 - (void)makeSourceViewX:(CGFloat)x makeSourceViewY:(CGFloat)y makeSourceViewW:(CGFloat)w makeSourceViewH:(CGFloat)h {
