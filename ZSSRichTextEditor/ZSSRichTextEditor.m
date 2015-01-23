@@ -117,7 +117,7 @@ static Class hackishFixClass = Nil;
     // Editor View
     self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(x, y, w, h)];
     self.editorView.delegate = self;
-    //self.editorView.hidesInputAccessoryView = YES;
+    self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     self.editorView.scalesPageToFit = YES;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
