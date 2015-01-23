@@ -179,7 +179,7 @@ static Class hackishFixClass = Nil;
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
-    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, w, 44)];
+    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
@@ -191,9 +191,9 @@ static Class hackishFixClass = Nil;
     [self.mainView addSubview:self.toolbarHolder];
     
     // Toolbar with icons
-    // Toolbar размер по ширине ноль, так как он увеличивается с добавлением кадой кнопочки
+    // Toolbar размер по ширине ноль, так как он увеличивается с добавлением каждой кнопочки
     self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
-    //self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
