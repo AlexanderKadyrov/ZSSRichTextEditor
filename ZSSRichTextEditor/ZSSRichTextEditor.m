@@ -184,8 +184,8 @@
     // Background Toolbar
     //UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
     
-    //UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
-    //backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+    backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
     self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
