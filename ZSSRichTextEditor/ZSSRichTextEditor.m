@@ -116,6 +116,7 @@ static Class hackishFixClass = Nil;
     
     self.mainView = self.view;
     self.mainView.frame = CGRectMake(x, y, w, h);
+    self.mainView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
 }
 
 - (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
