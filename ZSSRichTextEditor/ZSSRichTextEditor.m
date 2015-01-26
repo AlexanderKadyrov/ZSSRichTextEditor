@@ -113,7 +113,7 @@ static Class hackishFixClass = Nil;
 }
 
 - (void)makeWysiwygWidth:(CGFloat)width makeWysiwygHeight:(CGFloat)height {
-    
+    /*
     //make MainView
     self.mainView = self.view;
     self.mainView.layer.cornerRadius = 5;
@@ -159,13 +159,13 @@ static Class hackishFixClass = Nil;
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
-    /*
+    */
     //make Toolbar
-    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
+    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(8, 8, width, 44)];
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
-    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
+    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(8, 8, width, 44)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
@@ -178,7 +178,7 @@ static Class hackishFixClass = Nil;
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
     
     // Parent holding view
-    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
+    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(8, 8, width, 44)];
     self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
     [self.toolbarHolder addSubview:self.toolBarScroll];
     [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
@@ -186,7 +186,6 @@ static Class hackishFixClass = Nil;
     
     // Build the toolbar
     [self buildToolbar];
-    */
 }
 
 - (void)setEnabledToolbarItems:(NSArray *)enabledToolbarItems {
