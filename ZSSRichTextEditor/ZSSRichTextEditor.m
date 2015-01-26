@@ -76,6 +76,7 @@ static Class hackishFixClass = Nil;
 @end
 
 @interface ZSSRichTextEditor ()
+@property (nonatomic, assign) CGPoint lastScroll;
 @property (nonatomic, strong) UIScrollView *toolBarScroll;
 @property (nonatomic) CGRect editorViewFrame;
 @property (nonatomic) BOOL resourcesLoaded;
@@ -119,6 +120,7 @@ static Class hackishFixClass = Nil;
     
     self.editorView.delegate = self;
     self.editorView.scrollView.delegate = self;
+    self.lastScroll = CGPointMake(0, -64);
     
     self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
@@ -1126,6 +1128,8 @@ static Class hackishFixClass = Nil;
             [self blurTextEditor];
         });
     }
+    
+    [self.editorView.scrollView setContentOffset:self.lastScroll];
 }
 
 
