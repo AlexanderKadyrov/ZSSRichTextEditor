@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11CD359C1A7675AF00CAC8F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CD359B1A7675AF00CAC8F3 /* Images.xcassets */; };
+		11CD35A01A7677EA00CAC8F3 /* Bold.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CD359E1A7677EA00CAC8F3 /* Bold.png */; };
+		11CD35A11A7677EA00CAC8F3 /* Bold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11CD359F1A7677EA00CAC8F3 /* Bold@2x.png */; };
 		2314CBA0198F4CEC00A126F6 /* 76.png in Resources */ = {isa = PBXBuildFile; fileRef = 2314CB9D198F4CEC00A126F6 /* 76.png */; };
 		2314CBA1198F4CEC00A126F6 /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2314CB9E198F4CEC00A126F6 /* 120.png */; };
 		2314CBA2198F4CEC00A126F6 /* 152.png in Resources */ = {isa = PBXBuildFile; fileRef = 2314CB9F198F4CEC00A126F6 /* 152.png */; };
@@ -117,7 +118,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		11CD359B1A7675AF00CAC8F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		11CD359E1A7677EA00CAC8F3 /* Bold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bold.png; sourceTree = "<group>"; };
+		11CD359F1A7677EA00CAC8F3 /* Bold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bold@2x.png"; sourceTree = "<group>"; };
 		2314CB9D198F4CEC00A126F6 /* 76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76.png; sourceTree = "<group>"; };
 		2314CB9E198F4CEC00A126F6 /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
 		2314CB9F198F4CEC00A126F6 /* 152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152.png; sourceTree = "<group>"; };
@@ -268,6 +270,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11CD359D1A7677AD00CAC8F3 /* OtherImages */ = {
+			isa = PBXGroup;
+			children = (
+				11CD359E1A7677EA00CAC8F3 /* Bold.png */,
+				11CD359F1A7677EA00CAC8F3 /* Bold@2x.png */,
+			);
+			name = OtherImages;
+			path = Images/OtherImages;
+			sourceTree = "<group>";
+		};
 		2343B1D7199B2C3C00349048 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,7 +411,6 @@
 		4581EB73184845780048CAB0 = {
 			isa = PBXGroup;
 			children = (
-				11CD359B1A7675AF00CAC8F3 /* Images.xcassets */,
 				4581EB85184845790048CAB0 /* View Controllers */,
 				4581EB7E184845790048CAB0 /* Frameworks */,
 				4581EB7D184845790048CAB0 /* Products */,
@@ -470,6 +481,7 @@
 		4581EBBE184BB92E0048CAB0 /* Editor Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11CD359D1A7677AD00CAC8F3 /* OtherImages */,
 				23A76DC2187532F1000169F6 /* editor.html */,
 				23A76DC3187532F1000169F6 /* ZSSRichTextEditor.js */,
 				4562858E184CFBE400B6168E /* Images */,
@@ -590,6 +602,7 @@
 				45F860BB18A84CFA0011266B /* ZSSparagraph@2x.png in Resources */,
 				45F860AD18A84CFA0011266B /* ZSSh2@2x.png in Resources */,
 				45F73D3418D7AE9700CD6DBA /* ZSSh5.png in Resources */,
+				11CD35A01A7677EA00CAC8F3 /* Bold.png in Resources */,
 				45F860C818A84CFA0011266B /* ZSSviewsource@2x.png in Resources */,
 				45F860A918A84CFA0011266B /* ZSScenterjustify@2x.png in Resources */,
 				45F73D3D18D7AE9700CD6DBA /* ZSSorderedlist.png in Resources */,
@@ -615,6 +628,7 @@
 				45F860AC18A84CFA0011266B /* ZSSh1@2x.png in Resources */,
 				2343B1D5199A776A00349048 /* ZSSinsertkeyword.png in Resources */,
 				2314CBA0198F4CEC00A126F6 /* 76.png in Resources */,
+				11CD35A11A7677EA00CAC8F3 /* Bold@2x.png in Resources */,
 				45F73D4718D7AE9700CD6DBA /* ZSStable.png in Resources */,
 				4581EB8A1848457A0048CAB0 /* InfoPlist.strings in Resources */,
 				45F860C118A84CFA0011266B /* ZSSsuperscript@2x.png in Resources */,
@@ -626,7 +640,6 @@
 				45F860B518A84CFA0011266B /* ZSSitalic@2x.png in Resources */,
 				45F73D3518D7AE9700CD6DBA /* ZSSh6.png in Resources */,
 				2314CBA2198F4CEC00A126F6 /* 152.png in Resources */,
-				11CD359C1A7675AF00CAC8F3 /* Images.xcassets in Resources */,
 				45F860AE18A84CFA0011266B /* ZSSh3@2x.png in Resources */,
 				45F73D3918D7AE9700CD6DBA /* ZSSitalic.png in Resources */,
 				45F73D2E18D7AE9700CD6DBA /* ZSSclearstyle.png in Resources */,
