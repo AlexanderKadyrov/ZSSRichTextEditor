@@ -117,7 +117,6 @@ static Class hackishFixClass = Nil;
     //make MainView
     self.mainView = self.view;
     self.mainView.layer.cornerRadius = 5;
-    [self.view addSubview:self.mainView];
     
     //make SourceView
     self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(0, 44, width, height)];
@@ -160,7 +159,7 @@ static Class hackishFixClass = Nil;
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
-    
+    /*
     //make Toolbar
     UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -187,6 +186,7 @@ static Class hackishFixClass = Nil;
     
     // Build the toolbar
     [self buildToolbar];
+    */
 }
 
 - (void)setEnabledToolbarItems:(NSArray *)enabledToolbarItems {
