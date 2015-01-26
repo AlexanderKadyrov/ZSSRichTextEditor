@@ -117,7 +117,7 @@ static Class hackishFixClass = Nil;
 - (void)makeWysiwygX:(CGFloat)x makeWysiwygY:(CGFloat)y makeWysiwygW:(CGFloat)w makeWysiwygH:(CGFloat)h {
     
     //make SourceView
-    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(x, y, w, h)];
+    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(x, 44, w, h)];
     self.sourceView.hidden = YES;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -129,7 +129,7 @@ static Class hackishFixClass = Nil;
     
     
     //make EditorView
-    self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(x, y, w, h)];
+    self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(x, 44, w, h)];
     self.editorView.delegate = self;
     self.editorView.scrollView.delegate = self;
     self.editorView.hidesInputAccessoryView = YES;
