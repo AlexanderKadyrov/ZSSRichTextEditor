@@ -117,6 +117,7 @@ static Class hackishFixClass = Nil;
     //make MainView
     self.mainView = self.view;
     
+    /*
     //make SourceView
     self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(0, 44, width, height)];
     self.sourceView.hidden = YES;
@@ -185,6 +186,7 @@ static Class hackishFixClass = Nil;
     
     // Build the toolbar
     [self buildToolbar];
+    */
 }
 
 - (void)setEnabledToolbarItems:(NSArray *)enabledToolbarItems {
