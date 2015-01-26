@@ -1092,8 +1092,8 @@ static Class hackishFixClass = Nil;
     } else if ([urlString rangeOfString:@"callback://0/"].location != NSNotFound) {
         
         // We recieved the callback
-        //NSString *className = [urlString stringByReplacingOccurrencesOfString:@"callback://0/" withString:@""];
-        //[self updateToolBarWithButtonName:className];
+        NSString *className = [urlString stringByReplacingOccurrencesOfString:@"callback://0/" withString:@""];
+        [self updateToolBarWithButtonName:className];
         
     } else if ([urlString rangeOfString:@"debug://"].location != NSNotFound) {
         
@@ -1116,7 +1116,7 @@ static Class hackishFixClass = Nil;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     self.editorLoaded = YES;
-    //[self setPlaceholderText];
+    [self setPlaceholderText];
     if (!self.internalHTML) {
         self.internalHTML = @"";
     }
