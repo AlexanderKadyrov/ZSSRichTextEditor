@@ -105,13 +105,17 @@ static Class hackishFixClass = Nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.mainView = self.view;
-    
     self.editorLoaded = NO;
     self.shouldShowKeyboard = YES;
     self.formatHTML = YES;
     
     self.enabledToolbarItems = [[NSArray alloc] init];
+}
+
+- (void)makeMainViewX:(CGFloat)x makeMainViewY:(CGFloat)y makeMainViewW:(CGFloat)w makeMainViewH:(CGFloat)h {
+    
+    self.mainView = self.view;
+    self.mainView.frame = CGRectMake(x, y, w, h)
 }
 
 - (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
@@ -1116,7 +1120,7 @@ static Class hackishFixClass = Nil;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     self.editorLoaded = YES;
-    [self setPlaceholderText];
+    //[self setPlaceholderText];
     if (!self.internalHTML) {
         self.internalHTML = @"";
     }
