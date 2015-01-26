@@ -1129,7 +1129,7 @@ static Class hackishFixClass = Nil;
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    NSLog(@"fdsfsf");
+    [self.editorView.scrollView setContentOffset:CGPointMake(0, 145) animated:YES];
 }
 
 #pragma mark - Callbacks
