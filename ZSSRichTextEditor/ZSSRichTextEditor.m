@@ -114,21 +114,22 @@ static Class hackishFixClass = Nil;
     self.mainView = self.view;
 }
 
-- (void)makeMainViewX:(CGFloat)x makeMainViewY:(CGFloat)y makeMainViewW:(CGFloat)w makeMainViewH:(CGFloat)h {
+- (void)makeWysiwygX:(CGFloat)x makeWysiwygY:(CGFloat)y makeWysiwygW:(CGFloat)w makeWysiwygH:(CGFloat)h {
+    
+    //make SourceView
+    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(x, y, w, h)];
+    self.sourceView.hidden = YES;
+    self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.sourceView.font = [UIFont fontWithName:@"Courier" size:13.0];
+    self.sourceView.autoresizesSubviews = YES;
+    self.sourceView.delegate = self;
+    [self.mainView addSubview:self.sourceView];
     
     
-    //self.mainView.frame = CGRectMake(x, y, w, h);
     
-    //self.mainView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-}
-
-- (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
-    
-    //self.frame = CGRectMake(0, 0, w, h);
-    
-    // Editor View
+    //make EditorView
     self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-    
     self.editorView.delegate = self;
     self.editorView.scrollView.delegate = self;
     self.editorView.hidesInputAccessoryView = YES;
@@ -161,43 +162,28 @@ static Class hackishFixClass = Nil;
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
-}
-
-- (void)makeSourceViewX:(CGFloat)x makeSourceViewY:(CGFloat)y makeSourceViewW:(CGFloat)w makeSourceViewH:(CGFloat)h {
     
-    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(x, y, w, h)];
-    self.sourceView.hidden = YES;
-    self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.sourceView.font = [UIFont fontWithName:@"Courier" size:13.0];
-    self.sourceView.autoresizesSubviews = YES;
-    self.sourceView.delegate = self;
-    [self.mainView addSubview:self.sourceView];
-}
-
-- (void)makeToolBarX:(CGFloat)x makeToolBarY:(CGFloat)y makeToolBarW:(CGFloat)w makeToolBarH:(CGFloat)h {
     
-    // Background Toolbar
-    //UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
     
-    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+    //make Toolbar
+    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(x, y, w, 44)];
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
-    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(x, y, w, 44)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
     // Toolbar with icons
     // Toolbar размер по ширине ноль, так как он увеличивается с добавлением каждой кнопочки
-    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
+    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
     self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
     
     // Parent holding view
-    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
+    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, 44)];
     self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
     [self.toolbarHolder addSubview:self.toolBarScroll];
     [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];

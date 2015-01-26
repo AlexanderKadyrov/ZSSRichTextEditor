@@ -208,17 +208,10 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
  */
 - (void)editorDidScrollWithPosition:(NSInteger)position;
 
-
-
-
-
-- (void)makeMainViewX:(CGFloat)x makeMainViewY:(CGFloat)y makeMainViewW:(CGFloat)w makeMainViewH:(CGFloat)h;
-
-- (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h;
-
-- (void)makeSourceViewX:(CGFloat)x makeSourceViewY:(CGFloat)y makeSourceViewW:(CGFloat)w makeSourceViewH:(CGFloat)h;
-
-- (void)makeToolBarX:(CGFloat)x makeToolBarY:(CGFloat)y makeToolBarW:(CGFloat)w makeToolBarH:(CGFloat)h;
+/**
+ *  Make Wysiwyg
+ */
+- (void)makeWysiwygX:(CGFloat)x makeWysiwygY:(CGFloat)y makeWysiwygW:(CGFloat)w makeWysiwygH:(CGFloat)h;
 
 
 
