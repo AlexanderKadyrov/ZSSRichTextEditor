@@ -1150,6 +1150,16 @@ static Class hackishFixClass = Nil;
     }
 }
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeFormSubmitted)
+    {
+        self.lastScroll = CGPointMake(0, -64);
+    }
+    
+    return YES;
+}
+
 #pragma mark - Callbacks
 
 // Blank implementation
