@@ -1063,7 +1063,7 @@ static Class hackishFixClass = Nil;
 
 
 #pragma mark - UITextView Delegate
-/*
+
 - (void)textViewDidChange:(UITextView *)textView {
     CGRect line = [textView caretRectForPosition:textView.selectedTextRange.start];
     CGFloat overflow = line.origin.y + line.size.height - ( textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top );
@@ -1078,24 +1078,22 @@ static Class hackishFixClass = Nil;
         }];
     }
 }
-*/
 
 #pragma mark - UIWebView Delegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    
-    
     NSString *urlString = [[request URL] absoluteString];
     NSLog(@"web request");
     NSLog(@"%@", urlString);
+    
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         return NO;
     } else if ([urlString rangeOfString:@"callback://0/"].location != NSNotFound) {
         
         // We recieved the callback
-        NSString *className = [urlString stringByReplacingOccurrencesOfString:@"callback://0/" withString:@""];
-        [self updateToolBarWithButtonName:className];
+        //NSString *className = [urlString stringByReplacingOccurrencesOfString:@"callback://0/" withString:@""];
+        //[self updateToolBarWithButtonName:className];
         
     } else if ([urlString rangeOfString:@"debug://"].location != NSNotFound) {
         
