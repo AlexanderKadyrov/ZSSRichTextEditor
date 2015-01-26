@@ -1110,6 +1110,11 @@ static Class hackishFixClass = Nil;
         
     }
     
+    if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeFormSubmitted)
+    {
+        self.lastScroll = CGPointMake(0, -64);
+    }
+    
     return YES;
     
 }//end
@@ -1148,16 +1153,6 @@ static Class hackishFixClass = Nil;
     {
         self.lastScroll = CGPointMake(self.editorView.scrollView.contentOffset.x, self.editorView.scrollView.contentOffset.y);
     }
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeFormSubmitted)
-    {
-        self.lastScroll = CGPointMake(0, -64);
-    }
-    
-    return YES;
 }
 
 #pragma mark - Callbacks
