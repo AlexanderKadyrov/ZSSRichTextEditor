@@ -22,6 +22,7 @@
 static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryView";
 static Class hackishFixClass = Nil;
 
+/*
 - (UIView *)hackishlyFoundBrowserView {
     UIScrollView *scrollView = self.scrollView;
     
@@ -34,6 +35,7 @@ static Class hackishFixClass = Nil;
     }
     return browserView;
 }
+*/
 
 - (id)methodReturningNil {
     return nil;
@@ -70,7 +72,7 @@ static Class hackishFixClass = Nil;
         Class normalClass = objc_getClass("UIWebBrowserView");
         object_setClass(browserView, normalClass);
     }
-    //[browserView reloadInputViews];
+    [browserView reloadInputViews];
 }
 
 @end
