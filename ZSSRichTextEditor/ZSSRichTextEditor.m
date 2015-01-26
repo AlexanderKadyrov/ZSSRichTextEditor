@@ -13,16 +13,17 @@
 #import "ZSSBarButtonItem.h"
 #import "HRColorUtil.h"
 
-@interface UIWebView ()
-//@property (nonatomic, assign) BOOL hidesInputAccessoryView;
+
+
+@interface UIWebView (HackishAccessoryHiding)
+@property (nonatomic, assign) BOOL hidesInputAccessoryView;
 @end
 
-//@implementation UIWebView
+@implementation UIWebView (HackishAccessoryHiding)
 
-//static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryView";
-//static Class hackishFixClass = Nil;
+static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryView";
+static Class hackishFixClass = Nil;
 
-/*
 - (UIView *)hackishlyFoundBrowserView {
     UIScrollView *scrollView = self.scrollView;
     
@@ -35,15 +36,11 @@
     }
     return browserView;
 }
-*/
 
-/*
 - (id)methodReturningNil {
     return nil;
 }
-*/
 
-/*
 - (void)ensureHackishSubclassExistsOfBrowserViewClass:(Class)browserViewClass {
     if (!hackishFixClass) {
         Class newClass = objc_allocateClassPair(browserViewClass, hackishFixClassName, 0);
@@ -55,9 +52,7 @@
         hackishFixClass = newClass;
     }
 }
-*/
 
-/*
 - (BOOL) hidesInputAccessoryView {
     UIView *browserView = [self hackishlyFoundBrowserView];
     return [browserView class] == hackishFixClass;
@@ -79,9 +74,10 @@
     }
     [browserView reloadInputViews];
 }
-*/
 
-//@end
+@end
+
+
 
 @interface ZSSRichTextEditor ()
 @property (nonatomic, strong) UIScrollView *toolBarScroll;
@@ -135,7 +131,7 @@
     
     self.editorView.delegate = self;
     self.editorView.scrollView.delegate = self;
-    //self.editorView.hidesInputAccessoryView = YES;
+    self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     self.editorView.scalesPageToFit = YES;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
