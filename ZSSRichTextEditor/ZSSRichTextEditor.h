@@ -211,7 +211,7 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
 /**
  *  Make Wysiwyg
  */
-- (void)makeWysiwygX:(CGFloat)x makeWysiwygY:(CGFloat)y makeWysiwygW:(CGFloat)w makeWysiwygH:(CGFloat)h;
+- (void)makeWysiwygWidth:(CGFloat)width makeWysiwygHeight:(CGFloat)height;
 
 
 

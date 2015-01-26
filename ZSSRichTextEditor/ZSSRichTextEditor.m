@@ -114,10 +114,10 @@ static Class hackishFixClass = Nil;
     self.mainView = self.view;
 }
 
-- (void)makeWysiwygX:(CGFloat)x makeWysiwygY:(CGFloat)y makeWysiwygW:(CGFloat)w makeWysiwygH:(CGFloat)h {
+- (void)makeWysiwygWidth:(CGFloat)width makeWysiwygHeight:(CGFloat)height {
     
     //make SourceView
-    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(x, 44, w, h)];
+    self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(0, 44, width, height)];
     self.sourceView.hidden = YES;
     self.sourceView.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.sourceView.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -126,10 +126,8 @@ static Class hackishFixClass = Nil;
     self.sourceView.delegate = self;
     [self.mainView addSubview:self.sourceView];
     
-    
-    
     //make EditorView
-    self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(x, 44, w, h)];
+    self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 44, width, height)];
     self.editorView.delegate = self;
     self.editorView.scrollView.delegate = self;
     self.editorView.hidesInputAccessoryView = YES;
@@ -145,32 +143,27 @@ static Class hackishFixClass = Nil;
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"editor" ofType:@"html"];
         NSData *htmlData = [NSData dataWithContentsOfFile:filePath];
         
-        NSString *width = [NSString stringWithFormat:@"%1.0f", w];
-        NSString *height = [NSString stringWithFormat:@"%1.0f", h];
-        
-        width = [width stringByAppendingString:@"px"];
-        height = [height stringByAppendingString:@"px"];
-        
+        NSString *w = [NSString stringWithFormat:@"%1.0f", width];
+        w = [w stringByAppendingString:@"px"];
         NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
-        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:width];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"device-width" withString:w];
+        
         NSString *source = [[NSBundle mainBundle] pathForResource:@"ZSSRichTextEditor" ofType:@"js"];
         NSString *jsString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:source] encoding:NSUTF8StringEncoding];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"<!--editor-->" withString:jsString];
         
-        NSLog(@"%@", width);
+        NSLog(@"%@", w);
         
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
     
-    
-    
     //make Toolbar
-    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(x, y, w, 44)];
+    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
-    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(x, y, w, 44)];
+    self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
@@ -183,7 +176,7 @@ static Class hackishFixClass = Nil;
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
     
     // Parent holding view
-    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, 44)];
+    self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
     self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
     [self.toolbarHolder addSubview:self.toolBarScroll];
     [self.toolbarHolder insertSubview:backgroundToolbar atIndex:0];
