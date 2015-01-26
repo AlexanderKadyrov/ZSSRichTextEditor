@@ -76,7 +76,6 @@ static Class hackishFixClass = Nil;
 @end
 
 @interface ZSSRichTextEditor ()
-@property (nonatomic, assign) CGPoint lastScroll;
 @property (nonatomic, strong) UIScrollView *toolBarScroll;
 @property (nonatomic) CGRect editorViewFrame;
 @property (nonatomic) BOOL resourcesLoaded;
@@ -120,8 +119,6 @@ static Class hackishFixClass = Nil;
     
     self.editorView.delegate = self;
     self.editorView.scrollView.delegate = self;
-    self.lastScroll = CGPointMake(0, -64);
-    
     self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     self.editorView.scalesPageToFit = YES;
@@ -1110,11 +1107,6 @@ static Class hackishFixClass = Nil;
         
     }
     
-    if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeFormSubmitted)
-    {
-        self.lastScroll = CGPointMake(0, -64);
-    }
-    
     return YES;
     
 }//end
@@ -1132,26 +1124,6 @@ static Class hackishFixClass = Nil;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self blurTextEditor];
         });
-    }
-    
-    [self.editorView.scrollView setContentOffset:self.lastScroll];
-}
-
-- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
-{
-    self.lastScroll = CGPointMake(self.editorView.scrollView.contentOffset.x, -64);
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    self.lastScroll = CGPointMake(self.editorView.scrollView.contentOffset.x, self.editorView.scrollView.contentOffset.y);
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    if (decelerate != YES)
-    {
-        self.lastScroll = CGPointMake(self.editorView.scrollView.contentOffset.x, self.editorView.scrollView.contentOffset.y);
     }
 }
 
