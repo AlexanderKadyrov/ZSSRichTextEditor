@@ -70,7 +70,7 @@ static Class hackishFixClass = Nil;
         Class normalClass = objc_getClass("UIWebBrowserView");
         object_setClass(browserView, normalClass);
     }
-    [browserView reloadInputViews];
+    //[browserView reloadInputViews];
 }
 
 @end
