@@ -184,15 +184,14 @@
     // Background Toolbar
     //UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.mainView.frame.size.width, 44)];
     
-    UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
-    backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    //UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+    //backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // Scrolling View
     self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
-    /*
     // Toolbar with icons
     // Toolbar размер по ширине ноль, так как он увеличивается с добавлением каждой кнопочки
     self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 0, h)];
@@ -200,7 +199,6 @@
     self.toolbar.backgroundColor = [UIColor clearColor];
     [self.toolBarScroll addSubview:self.toolbar];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
-    */
     
     // Parent holding view
     self.toolbarHolder = [[UIView alloc] initWithFrame:CGRectMake(x, y, w, h)];
