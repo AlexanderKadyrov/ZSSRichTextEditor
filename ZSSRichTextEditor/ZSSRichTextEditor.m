@@ -13,14 +13,14 @@
 #import "ZSSBarButtonItem.h"
 #import "HRColorUtil.h"
 
-@interface UIWebView (HackishAccessoryHiding)
-@property (nonatomic, assign) BOOL hidesInputAccessoryView;
+@interface UIWebView ()
+//@property (nonatomic, assign) BOOL hidesInputAccessoryView;
 @end
 
-@implementation UIWebView (HackishAccessoryHiding)
+//@implementation UIWebView
 
-static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryView";
-static Class hackishFixClass = Nil;
+//static const char * const hackishFixClassName = "UIWebBrowserViewMinusAccessoryView";
+//static Class hackishFixClass = Nil;
 
 /*
 - (UIView *)hackishlyFoundBrowserView {
@@ -81,7 +81,7 @@ static Class hackishFixClass = Nil;
 }
 */
 
-@end
+//@end
 
 @interface ZSSRichTextEditor ()
 @property (nonatomic, strong) UIScrollView *toolBarScroll;
@@ -110,7 +110,7 @@ static Class hackishFixClass = Nil;
     [super viewDidLoad];
     
     self.editorLoaded = NO;
-    self.shouldShowKeyboard = NO;
+    self.shouldShowKeyboard = YES;
     self.formatHTML = YES;
     
     self.enabledToolbarItems = [[NSArray alloc] init];
