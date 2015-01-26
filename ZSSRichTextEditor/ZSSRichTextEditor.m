@@ -115,7 +115,7 @@ static Class hackishFixClass = Nil;
 - (void)makeMainViewX:(CGFloat)x makeMainViewY:(CGFloat)y makeMainViewW:(CGFloat)w makeMainViewH:(CGFloat)h {
     
     self.mainView = self.view;
-    self.mainView.frame = CGRectMake(x, y, w, h)
+    self.mainView.frame = CGRectMake(x, y, w, h);
 }
 
 - (void)makeEditorX:(CGFloat)x makeEditorY:(CGFloat)y makeEditorW:(CGFloat)w makeEditorH:(CGFloat)h {
