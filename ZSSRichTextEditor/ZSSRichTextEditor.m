@@ -37,10 +37,13 @@ static Class hackishFixClass = Nil;
 }
 */
 
+/*
 - (id)methodReturningNil {
     return nil;
 }
+*/
 
+/*
 - (void)ensureHackishSubclassExistsOfBrowserViewClass:(Class)browserViewClass {
     if (!hackishFixClass) {
         Class newClass = objc_allocateClassPair(browserViewClass, hackishFixClassName, 0);
@@ -52,6 +55,7 @@ static Class hackishFixClass = Nil;
         hackishFixClass = newClass;
     }
 }
+*/
 
 /*
 - (BOOL) hidesInputAccessoryView {
