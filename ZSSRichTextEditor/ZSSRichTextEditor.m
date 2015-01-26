@@ -110,7 +110,7 @@ static Class hackishFixClass = Nil;
     [super viewDidLoad];
     
     self.editorLoaded = NO;
-    self.shouldShowKeyboard = YES;
+    self.shouldShowKeyboard = NO;
     self.formatHTML = YES;
     
     self.enabledToolbarItems = [[NSArray alloc] init];
