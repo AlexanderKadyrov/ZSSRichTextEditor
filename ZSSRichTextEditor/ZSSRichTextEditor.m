@@ -110,12 +110,14 @@ static Class hackishFixClass = Nil;
     self.formatHTML = YES;
     
     self.enabledToolbarItems = [[NSArray alloc] init];
+    
+    self.mainView = self.view;
 }
 
 - (void)makeMainViewX:(CGFloat)x makeMainViewY:(CGFloat)y makeMainViewW:(CGFloat)w makeMainViewH:(CGFloat)h {
     
-    self.mainView = self.view;
-    self.mainView.frame = CGRectMake(x, y, w, h);
+    
+    //self.mainView.frame = CGRectMake(x, y, w, h);
     
     //self.mainView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 }
