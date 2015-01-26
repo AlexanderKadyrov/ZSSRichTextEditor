@@ -110,11 +110,12 @@ static Class hackishFixClass = Nil;
     self.formatHTML = YES;
     
     self.enabledToolbarItems = [[NSArray alloc] init];
-    
-    self.mainView = self.view;
 }
 
 - (void)makeWysiwygWidth:(CGFloat)width makeWysiwygHeight:(CGFloat)height {
+    
+    //make MainView
+    self.mainView = self.view;
     
     //make SourceView
     self.sourceView = [[ZSSTextView alloc] initWithFrame:CGRectMake(0, 44, width, height)];
