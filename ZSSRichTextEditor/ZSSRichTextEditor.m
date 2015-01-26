@@ -1132,6 +1132,16 @@ static Class hackishFixClass = Nil;
     [self.editorView.scrollView setContentOffset:self.lastScroll];
 }
 
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
+{
+    self.lastScroll = CGPointMake(self.editorView.scrollView.contentOffset.x, -64);
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    self.lastScroll = CGPointMake(self.editorView.scrollView.contentOffset.x, self.editorView.scrollView.contentOffset.y);
+}
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if (decelerate != YES)
