@@ -1127,6 +1127,11 @@ static Class hackishFixClass = Nil;
     }
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    NSLog(@"fdsfsf");
+}
+
 #pragma mark - Callbacks
 
 // Blank implementation
