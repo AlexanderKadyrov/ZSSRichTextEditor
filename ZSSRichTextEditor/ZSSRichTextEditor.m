@@ -1063,7 +1063,7 @@ static Class hackishFixClass = Nil;
 
 
 #pragma mark - UITextView Delegate
-
+/*
 - (void)textViewDidChange:(UITextView *)textView {
     CGRect line = [textView caretRectForPosition:textView.selectedTextRange.start];
     CGFloat overflow = line.origin.y + line.size.height - ( textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top );
@@ -1078,7 +1078,7 @@ static Class hackishFixClass = Nil;
         }];
     }
 }
-
+*/
 
 #pragma mark - UIWebView Delegate
 
