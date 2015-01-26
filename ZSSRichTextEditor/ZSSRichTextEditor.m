@@ -113,7 +113,7 @@ static Class hackishFixClass = Nil;
 }
 
 - (void)makeWysiwygWidth:(CGFloat)width makeWysiwygHeight:(CGFloat)height {
-    /*
+    
     //make MainView
     self.mainView = self.view;
     self.mainView.layer.cornerRadius = 5;
@@ -159,7 +159,7 @@ static Class hackishFixClass = Nil;
         [self.editorView loadHTMLString:htmlString baseURL:self.baseURL];
         self.resourcesLoaded = YES;
     }
-    */
+     
     //make Toolbar
     UIToolbar *backgroundToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(8, 8, width, 44)];
     backgroundToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
