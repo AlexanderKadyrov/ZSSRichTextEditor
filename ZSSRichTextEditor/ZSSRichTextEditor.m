@@ -53,6 +53,7 @@ static Class hackishFixClass = Nil;
     }
 }
 
+/*
 - (BOOL) hidesInputAccessoryView {
     UIView *browserView = [self hackishlyFoundBrowserView];
     return [browserView class] == hackishFixClass;
@@ -74,6 +75,7 @@ static Class hackishFixClass = Nil;
     }
     [browserView reloadInputViews];
 }
+*/
 
 @end
 
