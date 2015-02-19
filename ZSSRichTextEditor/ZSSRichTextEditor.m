@@ -133,7 +133,7 @@ static Class hackishFixClass = Nil;
     self.editorView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 44, width, height)];
     self.editorView.delegate = self;
     self.editorView.scrollView.delegate = self;
-    //self.editorView.hidesInputAccessoryView = YES;
+    self.editorView.hidesInputAccessoryView = YES;
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     self.editorView.scalesPageToFit = YES;
     self.editorView.dataDetectorTypes = UIDataDetectorTypeNone;
@@ -173,8 +173,8 @@ static Class hackishFixClass = Nil;
     // Toolbar with icons
     // Toolbar размер по ширине ноль, так как он увеличивается с добавлением каждой кнопочки
     self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
-    //self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.toolbar.backgroundColor = [UIColor clearColor];
+    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.toolbar.backgroundColor = [UIColor whiteColor];
     [self.mainView addSubview:self.toolbar];
     //self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
     
