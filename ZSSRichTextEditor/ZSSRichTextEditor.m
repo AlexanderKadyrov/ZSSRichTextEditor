@@ -726,7 +726,7 @@ static Class hackishFixClass = Nil;
 - (void)showInsertLinkDialogWithLink:(NSString *)url title:(NSString *)title {
     
     // Insert Button Title
-    NSString *insertButtonTitle = !self.selectedLinkURL ? NSLocalizedString(@"Insert", nil) : NSLocalizedString(@"Update", nil);
+    NSString *insertButtonTitle = !self.selectedLinkURL ? NSLocalizedString(@"Вставить", nil) : NSLocalizedString(@"Обновить", nil);
     
     // Picker Button
     UIButton *am = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -736,9 +736,9 @@ static Class hackishFixClass = Nil;
     
     if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)]) {
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Insert Link", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Вставить ссылку", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-            textField.placeholder = NSLocalizedString(@"URL (required)", nil);
+            textField.placeholder = NSLocalizedString(@"Ссылка", nil);
             if (url) {
                 textField.text = url;
             }
@@ -747,14 +747,14 @@ static Class hackishFixClass = Nil;
             textField.clearButtonMode = UITextFieldViewModeAlways;
         }];
         [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-            textField.placeholder = NSLocalizedString(@"Title", nil);
+            textField.placeholder = NSLocalizedString(@"Название", nil);
             textField.clearButtonMode = UITextFieldViewModeAlways;
             textField.secureTextEntry = NO;
             if (title) {
                 textField.text = title;
             }
         }];
-        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Отменить", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             [self focusTextEditor];
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:insertButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -763,7 +763,7 @@ static Class hackishFixClass = Nil;
             UITextField *title = [alertController.textFields objectAtIndex:1];
             if (!self.selectedLinkURL) {
                 [self insertLink:linkURL.text title:title.text];
-                NSLog(@"insert link");
+                NSLog(@"Вставить ссылку");
             } else {
                 [self updateLink:linkURL.text title:title.text];
             }
@@ -773,11 +773,11 @@ static Class hackishFixClass = Nil;
         
     } else {
         
-        self.alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Insert Link", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:insertButtonTitle, nil];
+        self.alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Вставить ссылку", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Отменить", nil) otherButtonTitles:insertButtonTitle, nil];
         self.alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
         self.alertView.tag = 2;
         UITextField *linkURL = [self.alertView textFieldAtIndex:0];
-        linkURL.placeholder = NSLocalizedString(@"URL (required)", nil);
+        linkURL.placeholder = NSLocalizedString(@"Ссылка", nil);
         if (url) {
             linkURL.text = url;
         }
@@ -787,7 +787,7 @@ static Class hackishFixClass = Nil;
         
         UITextField *alt = [self.alertView textFieldAtIndex:1];
         alt.secureTextEntry = NO;
-        alt.placeholder = NSLocalizedString(@"Title", nil);
+        alt.placeholder = NSLocalizedString(@"Название", nil);
         if (title) {
             alt.text = title;
         }
