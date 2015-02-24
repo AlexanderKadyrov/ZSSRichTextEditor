@@ -866,7 +866,7 @@ static Class hackishFixClass = Nil;
 - (void)showInsertImageDialogWithLink:(NSString *)url alt:(NSString *)alt {
     
     // Insert Button Title
-    NSString *insertButtonTitle = !self.selectedImageURL ? NSLocalizedString(@"Insert", nil) : NSLocalizedString(@"Update", nil);
+    NSString *insertButtonTitle = !self.selectedImageURL ? NSLocalizedString(@"Вставить", nil) : NSLocalizedString(@"Обновить", nil);
     
     // Picker Button
     UIButton *am = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -876,9 +876,9 @@ static Class hackishFixClass = Nil;
     
     if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)]) {
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Insert Image", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Вставить изображение", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-            textField.placeholder = NSLocalizedString(@"URL (required)", nil);
+            textField.placeholder = NSLocalizedString(@"Ссылка", nil);
             if (url) {
                 textField.text = url;
             }
@@ -887,14 +887,14 @@ static Class hackishFixClass = Nil;
             textField.clearButtonMode = UITextFieldViewModeAlways;
         }];
         [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-            textField.placeholder = NSLocalizedString(@"Alt", nil);
+            textField.placeholder = NSLocalizedString(@"Альтернативный текст", nil);
             textField.clearButtonMode = UITextFieldViewModeAlways;
             textField.secureTextEntry = NO;
             if (alt) {
                 textField.text = alt;
             }
         }];
-        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Отменить", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             [self focusTextEditor];
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:insertButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -912,11 +912,11 @@ static Class hackishFixClass = Nil;
         
     } else {
         
-        self.alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Insert Image", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:insertButtonTitle, nil];
+        self.alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Вставить изображение", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Отменить", nil) otherButtonTitles:insertButtonTitle, nil];
         self.alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
         self.alertView.tag = 1;
         UITextField *imageURL = [self.alertView textFieldAtIndex:0];
-        imageURL.placeholder = NSLocalizedString(@"URL (required)", nil);
+        imageURL.placeholder = NSLocalizedString(@"Ссылка", nil);
         if (url) {
             imageURL.text = url;
         }
@@ -927,7 +927,7 @@ static Class hackishFixClass = Nil;
         
         UITextField *alt1 = [self.alertView textFieldAtIndex:1];
         alt1.secureTextEntry = NO;
-        alt1.placeholder = NSLocalizedString(@"Alt", nil);
+        alt1.placeholder = NSLocalizedString(@"Альтернативный текст", nil);
         alt1.clearButtonMode = UITextFieldViewModeAlways;
         if (alt) {
             alt1.text = alt;
