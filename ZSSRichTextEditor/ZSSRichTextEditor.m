@@ -514,6 +514,11 @@ static Class hackishFixClass = Nil;
     [self.editorView stringByEvaluatingJavaScriptFromString:js];
 }
 
+- (void)focusWysiwyg {
+    NSString *js = [NSString stringWithFormat:@"zss_editor.focusWysiwyg();"];
+    [self.editorView stringByEvaluatingJavaScriptFromString:js];
+}
+
 - (void)blurTextEditor {
     NSString *js = [NSString stringWithFormat:@"zss_editor.blurEditor();"];
     [self.editorView stringByEvaluatingJavaScriptFromString:js];
@@ -1057,7 +1062,7 @@ static Class hackishFixClass = Nil;
     
     if (self.shouldShowKeyboard) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self blurTextEditor];
+            [self focusWysiwyg];
         });
     }
 }
