@@ -623,7 +623,6 @@ zss_editor.focusWysiwyg = function() {
     editor.focus();
 }
 
-/*
 zss_editor.focusEditor = function() {
     
     // the following was taken from http://stackoverflow.com/questions/1125292/how-to-move-cursor-to-end-of-contenteditable-entity/3866442#3866442
@@ -636,7 +635,8 @@ zss_editor.focusEditor = function() {
     selection.removeAllRanges();
     selection.addRange(range);
     editor.focus();
-}*/
+}
+
 /*
 zss_editor.blurEditor = function() {
     $('#zss_editor_content').blur();
