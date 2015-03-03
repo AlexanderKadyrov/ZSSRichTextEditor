@@ -164,8 +164,23 @@ static Class hackishFixClass = Nil;
         self.resourcesLoaded = YES;
     }
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapMethod)];
+    [tap setNumberOfTapsRequired:1];
+    [tap setDelegate:self];
+    [self.editorView addGestureRecognizer:tap];
+    
     // Build the toolbar
     [self buildToolbar];
+}
+
+- (void)didTapMethod {
+    
+    NSString *text = [self getText];
+    
+    if ([text length] > 0) {
+    } else {
+        [self focusWysiwyg];
+    }
 }
 
 - (void)setEnabledToolbarItems:(NSArray *)enabledToolbarItems {
@@ -1193,6 +1208,9 @@ static Class hackishFixClass = Nil;
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
 }//end
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
 
 - (NSString *)stringByDecodingURLFormat:(NSString *)string {
     NSString *result = [string stringByReplacingOccurrencesOfString:@"+" withString:@" "];
