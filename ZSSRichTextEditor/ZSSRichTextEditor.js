@@ -28,7 +28,7 @@ zss_editor.currentEditingLink;
 zss_editor.enabledItems = {};
 
 // Height of content window, will be set by viewController
-zss_editor.contentHeight = 244;
+zss_editor.contentHeight = 266;
 
 // Sets to true when extra footer gap shows and requires to hide
 zss_editor.updateScrollOffset = false;
@@ -45,11 +45,16 @@ zss_editor.init = function() {
                                 $('img').removeClass('zs_active');
                                 }
                                 });
-    
+    /*
     $(document).on('selectionchange',function(e){
                    zss_editor.calculateEditorHeightWithCaretPosition();
                    zss_editor.setScrollPosition();
-                   });
+                   });*/
+    
+    $(document).keyup(function() {
+                      zss_editor.calculateEditorHeightWithCaretPosition();
+                      zss_editor.setScrollPosition();
+                      });
     
     $(window).on('scroll', function(e) {
                  zss_editor.updateOffset();
