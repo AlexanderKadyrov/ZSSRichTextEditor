@@ -45,16 +45,16 @@ zss_editor.init = function() {
                                 $('img').removeClass('zs_active');
                                 }
                                 });
-    /*
+    
     $(document).on('selectionchange',function(e){
                    zss_editor.calculateEditorHeightWithCaretPosition();
                    zss_editor.setScrollPosition();
-                   });*/
-    
+                   });
+    /*
     $(document).keyup(function() {
                       zss_editor.calculateEditorHeightWithCaretPosition();
                       zss_editor.setScrollPosition();
-                      });
+                      });*/
     
     $(window).on('scroll', function(e) {
                  zss_editor.updateOffset();
