@@ -28,7 +28,7 @@ zss_editor.currentEditingLink;
 zss_editor.enabledItems = {};
 
 // Height of content window, will be set by viewController
-zss_editor.contentHeight = 266;
+zss_editor.contentHeight = 244;
 
 // Sets to true when extra footer gap shows and requires to hide
 zss_editor.updateScrollOffset = false;
@@ -37,43 +37,46 @@ zss_editor.updateScrollOffset = false;
  * The initializer function that must be called onLoad
  */
 zss_editor.init = function() {
-    
+    /*
     $('#zss_editor_content').on('touchend', function(e) {
                                 zss_editor.enabledEditingItems(e);
                                 var clicked = $(e.target);
                                 if (!clicked.hasClass('zs_active')) {
                                 $('img').removeClass('zs_active');
                                 }
-                                });
+                                });*/
     
     $(document).on('selectionchange',function(e){
                    zss_editor.calculateEditorHeightWithCaretPosition();
                    zss_editor.setScrollPosition();
                    });
-    /*
+    
     $(document).keyup(function() {
                       zss_editor.calculateEditorHeightWithCaretPosition();
                       zss_editor.setScrollPosition();
-                      });*/
-    
+                      });
+    /*
     $(window).on('scroll', function(e) {
                  zss_editor.updateOffset();
-                 });
+                 });*/
     
     // Make sure that when we tap anywhere in the document we focus on the editor
+    /*
     $(window).on('touchmove', function(e) {
                  zss_editor.isDragging = true;
                  zss_editor.updateScrollOffset = true;
                  zss_editor.setScrollPosition();
-                 });
+                 });*/
+    /*
     $(window).on('touchstart', function(e) {
                  zss_editor.isDragging = false;
-                 });
+                 });*/
+    /*
     $(window).on('touchend', function(e) {
                  if (!zss_editor.isDragging) {
                  zss_editor.focusEditor();
                  }
-                 });
+                 });*/
     
 }//end
 
