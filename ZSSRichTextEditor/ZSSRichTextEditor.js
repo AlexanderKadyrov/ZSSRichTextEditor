@@ -79,7 +79,7 @@ zss_editor.init = function() {
                  });*/
     
 }//end
-
+/*
 zss_editor.updateOffset = function() {
     
     if (!zss_editor.updateScrollOffset)
@@ -100,18 +100,18 @@ zss_editor.updateOffset = function() {
     }
     
     zss_editor.setScrollPosition();
-}
+}*/
 
 // This will show up in the XCode console as we are able to push this into an NSLog.
 zss_editor.debug = function(msg) {
     window.location = 'debug://'+msg;
 }
 
-
+/*
 zss_editor.setScrollPosition = function() {
     var position = window.pageYOffset;
     window.location = 'scroll://'+position;
-}
+}*/
 
 
 zss_editor.setPlaceholder = function(placeholder) {
